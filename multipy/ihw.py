@@ -77,7 +77,7 @@ def _apply_correction(pvals, groups, weights, method, alpha):
     significant = method(weighted_pvals, alpha)
     return significant
 
-def ihw_naive(pvals, groups, method, alpha=0.05):
+def ihw_naive(pvals, groups, method, alpha=0.05, verbose=False):
     """The "naive IHW" method by Ignatiadis et al. [1].
 
     Input arguments:
@@ -108,7 +108,8 @@ def ihw_naive(pvals, groups, method, alpha=0.05):
     initial_weights = np.ones(n_groups, dtype='float')
 
     """Optimize the weights."""
-    print('Optimizing weights ..')
+    if (verbose):
+        print('Optimizing weights ..')
     args = (pvals, groups, method, alpha)
     weights = minimize(fun=_f_naive_ihw, x0=initial_weights, args=args,
                        method='nelder-mead').x

@@ -184,7 +184,7 @@ def plot_two_group_reproducibility(effect_sizes, emphasis_primary,
 
 def rvalue_test(effect_sizes=np.linspace(0.2, 2.4, 12),
                 emphasis=np.asarray([0.02, 0.5, 0.98]), method=tst,
-                nl=90, sl=30, N=25, alpha=0.05, n_iter=10):
+                nl=90, sl=30, N=25, alpha=0.05, n_iter=10, verbose=False):
     """Function for simulating primary and follow-up experiments using the
     two-group model and testing which effects are reproducible using the FDR
     r-value method.
@@ -220,7 +220,8 @@ def rvalue_test(effect_sizes=np.linspace(0.2, 2.4, 12),
     reproducibility = np.zeros([n_iter, n_effect_sizes, n_emphasis])
 
     for ind in np.ndindex(n_iter, n_effect_sizes, n_emphasis):
-        print(ind)
+        if (verbose):
+            print(ind)
         """Simulate primary and follow-up experiments."""
         delta, emph = effect_sizes[ind[1]], emphasis[ind[2]]
         p1 = square_grid_model(delta=delta, nl=nl, sl=sl, N=N)[0]
@@ -334,7 +335,7 @@ def two_group_reproducibility_sample_size():
     fig.tight_layout()
     plt.show()
 
-def direct_replication_fwer_partial_conjunction():
+def direct_replication_fwer_partial_conjunction(verbose=False):
     """Perform a comparison of the partial conjuction and FWER
     replicability methods using the two-group model."""
 
@@ -347,7 +348,8 @@ def direct_replication_fwer_partial_conjunction():
     n_emphasis = len(emphasis)
 
     """Generate the test data."""
-    print('Simulating primary and follow-up experiments ..')
+    if (verbose):
+        print('Simulating primary and follow-up experiments ..')
 
     # Allocate memory.
     pvals_pri = np.zeros([n_effect_sizes, nl, nl])
@@ -360,7 +362,8 @@ def direct_replication_fwer_partial_conjunction():
 
     """Find reproducible effects using the FWER replicability
     method."""
-    print('Estimating reproducibility: FWER replicability ..')
+    if (verbose):
+        print('Estimating reproducibility: FWER replicability ..')
 
     repr_fwer = np.zeros([n_effect_sizes, n_emphasis])
 
@@ -377,7 +380,8 @@ def direct_replication_fwer_partial_conjunction():
 
     """Find reproducible effects using the partial conjuction
     method."""
-    print('Estimating reproducibility: Partial conjuction ..')
+    if (verbose):
+        print('Estimating reproducibility: Partial conjuction ..')
 
     repr_part = np.zeros([n_effect_sizes])
 

@@ -20,7 +20,7 @@ from os import walk
 from os.path import isfile, join
 
 """Read results from disk."""
-fpath = '/home/puolival/multipy_data'
+fpath = './multipy_data'
 fname_template = 'result-*.npy'
 fnames = [ff for f in walk(fpath) for ff in
           glob(join(f[0], fname_template))]

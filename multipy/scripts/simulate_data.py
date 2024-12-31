@@ -39,7 +39,7 @@ for i in np.arange(0, n_iterations):
         rvs_a[i, j], rvs_b[i, j] = data[2], data[3]
 
 """Save the simulated data to disk."""
-fpath_output = '/home/puolival/multipy_data'
+fpath_output = './multipy_data'
 fname_output = fpath_output + '/primary.npy'
 
 print('Saving data to %s' % fname_output)

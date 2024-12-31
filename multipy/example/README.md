@@ -28,7 +28,7 @@ from individual participants to a common space. This can be performed using
 the qcache pipeline of recon-all.
 
 ```bash
-cd /home/local/puolival/multipy-testdata/oasis
+cd ./multipy-testdata/oasis
 find ./ -name "OAS1_*_MR1" | cut -c 3- > subject_list
 ```
 
@@ -36,7 +36,7 @@ find ./ -name "OAS1_*_MR1" | cut -c 3- > subject_list
 ```bash
 # Settings
 export FREESURFER_HOME=/usr/local/freesurfer
-export SUBJECTS_DIR=/home/local/puolival/multipy-testdata/oasis
+export SUBJECTS_DIR=./multipy-testdata/oasis
 
 MEAS=thickness
 FWHM=10
@@ -83,7 +83,7 @@ The participant information file includes basic demographic variables (age, gend
 ```python
 """Read subject demographics from the CSV file. In this example we only
 need to know the CDR score and age of each participant."""
-fpath = '/home/local/puolival/multipy-testdata/oasis'
+fpath = './multipy-testdata/oasis'
 fname_demographics = fpath + '/demographics.csv'
 
 column_names = ['session', 'subject', 'gender', 'handedness', 'age',
@@ -185,7 +185,7 @@ import matplotlib.pyplot as plt
 
 import seaborn as sns
 
-label_path = '/home/puolival/multipy/multipy/example/labels'
+label_path = './multipy/multipy/example/labels'
 label = 'S_central.label'
 label_ind = read_label(label_path + '/' + hemisphere + '.' + label)
 

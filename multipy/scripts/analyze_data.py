@@ -17,7 +17,7 @@ from repeat import fwer_replicability as repl
 from util import grid_model_counts as counts
 
 """Load the simulated datasets."""
-fpath = '/home/puolival/multipy_data'
+fpath = './multipy_data'
 fname_primary = fpath + '/primary.npy'
 fname_followup = fname_primary.replace('primary', 'follow-up')
 

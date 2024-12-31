@@ -10,7 +10,7 @@
 
 # Settings
 export FREESURFER_HOME=/usr/local/freesurfer
-export SUBJECTS_DIR=/home/local/puolival/multipy-testdata/oasis
+export SUBJECTS_DIR=./multipy-testdata/subjects
 
 MEAS=thickness
 FWHM=10

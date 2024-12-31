@@ -113,7 +113,7 @@ plt.show()
 """Save the t-statistics, random variates, and p-values to make it
 possible to reproduce the results."""
 
-output_path = '/home/local/puolival/multipy-material/simulation-data'
+output_path = './multipy-material/simulation-data'
 output_fname_x = output_path + '/x.npy'
 output_fname_x_raw = output_path + '/x_raw.npy'
 output_fname_y_raw = output_path + '/y_raw.npy'
